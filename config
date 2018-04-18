@@ -38,6 +38,6 @@ gaps inner 15
 gaps outer 30
  
 # volume
-bindsym XF86AudioRaiseVolume exec amixer set 'Master' 10%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer set 'Master' 10%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer set 'Master' 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set 'Master' 5%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec amixer set Master toggle 
