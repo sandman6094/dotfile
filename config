@@ -8,7 +8,7 @@ bindsym $mod+F4 kill
 bindsym $mod+d exec rofi -show run -show-icons
  
 # font
-font pango:Monospace Bold 10
+font pango:Benmo Yonghei Bold 10
  
 # focus
 focus_follows_mouse no
