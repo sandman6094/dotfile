@@ -84,8 +84,8 @@ bar {
 # autostart
 exec_always compton -f --config ~/.compton.conf
 exec_always xfce4-power-manager
-exec_always wicd-client -ta
-exec_always diodon
+exec wicd-client -ta
+exec diodon
  
 # window style
 new_window pixel 4
