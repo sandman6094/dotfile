@@ -1,0 +1,112 @@
+# Sandman6094's I3-GAPS config
+ 
+# keymap bind
+set $mod Mod4
+floating_modifier $mod
+bindsym $mod+Return exec lxterminal
+bindsym $mod+F4 kill
+bindsym $mod+d exec rofi -show run -font "FZZhunYuan_GB18030 12"
+bindsym $mod+Shift+p exec scrot ~/Pictures/Screenshots/$(date +%y%m%d_%H%M%S).png && notify-send -i /usr/share/icons/Numix/16/actions/gtk-orientation-landscape.svg 'Screenshot has been saved to ~/Picture/Screeshots/'
+
+# font
+font pango:Monospace Bold 11
+ 
+# focus
+focus_follows_mouse no
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+ 
+# move
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+ 
+# mode toggle
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+ 
+# workspace 
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace X
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace X
+ 
+# reload config
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'pkill xorg?' -b 'Yes' 'i3-msg exit'"
+ 
+# resize
+mode "resize" {
+        bindsym Left resize shrink width 15 px or 15 ppt
+        bindsym Down resize grow height 15 px or 15 ppt
+        bindsym Up resize shrink height 15 px or 15 ppt
+        bindsym Right resize grow width 15 px or 15 ppt
+        bindsym Escape mode "default"
+        bindsym Return mode "default"
+}
+bindsym $mod+r mode "resize"
+ 
+# bar
+
+bar {
+       i3bar_command i3bar -t
+       position top 
+       colors {
+		statusline #ffffff
+		background #35394500
+		separator #ffffff
+		focused_workspace  #35394500 #35394500 #ffffff
+		inactive_workspace #35394500 #35394500 #7d7d7d
+	      }
+      status_command i3blocks -c ~/.config/i3blocks.conf
+}
+ 
+# autostart
+exec_always --no-startup-id compton --xrender-sync-fence --xrender-sync --backend glx --vsync opengl-swc -b
+exec_always --no-startup-id xfce4-power-manager
+exec_always --no-startup-id nm-applet
+exec ibus exit&&ibus-daemon --xim
+exec parcellite -n 
+ 
+# window style
+new_window pixel 4
+new_float pixel 4
+ 
+# colors
+client.focused #ffffff #ffffff #ffffff #ffffff #ffffff
+client.focused_inactive #353945 #353945 #ffffff #353945 #353945
+client.unfocused #353945 #353945 #ffffff #353945 #353945
+client.urgent #353945 #353945 #ffffff #353945 #353945
+client.placeholder #353945 #353945 #ffffff #353945 #353945
+ 
+# gaps
+gaps inner 25
+gaps outer 0
+ 
+# volume
+bindsym XF86AudioRaiseVolume exec amixer set 'Master' 5%+ && pkill -RTMIN+2 i3blocks
+bindsym XF86AudioLowerVolume exec amixer set 'Master' 5%- && pkill -RTMIN+2 i3blocks
+bindsym XF86AudioMute exec amixer set Master toggle 
