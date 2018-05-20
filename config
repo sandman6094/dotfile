@@ -88,7 +88,6 @@ bar {
 exec_always --no-startup-id compton --xrender-sync-fence --xrender-sync --backend glx --vsync opengl-swc -b
 exec_always --no-startup-id xfce4-power-manager
 exec_always --no-startup-id nm-applet
-exec ibus exit&&ibus-daemon --xim
 exec parcellite -n 
  
 # window style
