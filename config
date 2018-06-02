@@ -91,7 +91,8 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id xfce4-power-manager
 exec_always --no-startup-id nm-applet
 exec parcellite -n 
- 
+exec ibus-daemon --xim
+
 # window style
 new_window pixel 4
 new_float pixel 4
