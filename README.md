@@ -5,4 +5,5 @@
 * Compton
 ---
 截图/Screenshot
+
 !()[https://github.com/sandman6094/dotfile/blob/master/180620_213952.png]
